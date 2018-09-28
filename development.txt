@@ -1,0 +1,1 @@
+index.jsとnode_modulesを圧縮してLamdaにアップする
