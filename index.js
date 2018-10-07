@@ -47,12 +47,13 @@ const ParkSearchRequestHandler = {
             && handlerInput.requestEnvelope.request.intent.name === 'ParkSearchIntent';
     },
     handle(handlerInput) {
-        const speechText = '近くに公園ある';
+        var city = handlerInput.requestEnvelope.request.intent.slots.PlaceName.value;
+        var speechText = '公園探すぞ！' + city + 'の近くに公園あるか検索してみましょう';
 
         return handlerInput.responseBuilder
             .speak(speechText)
             .reprompt(speechText)
-            .withSimpleCard('公園あるかなー', speechText)
+            .withSimpleCard('searching park', speechText)
             .getResponse();
     }
 };
